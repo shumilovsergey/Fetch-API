@@ -1,10 +1,20 @@
-<html lang="ru">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=\, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
   </head>
   <body>
-    работает?
+    <p>text</p>
+    <script>
+      var url =
+        "http://newsapi.org/v2/top-headlines?" +
+        "country=us&" +
+        "apiKey=a61d97e2754d429ab848238a415874cd";
+      var req = new Request(url);
+      fetch(req).then(function (response) {
+        console.log(response.json());
+      });
+    </script>
   </body>
 </html>
