@@ -5,23 +5,71 @@
     <title>Document</title>
   </head>
   <body>
-    <div
-      class="grid"
-      data-masonry='{ "itemSelector": ".grid-item", "columnWidth": 200 }'
-    >
-      <div class="grid-item"><img src="test.jpg" alt="" /></div>
-      <div class="grid-item"><img src="test.jpg" alt="" /></div>
-      <div class="grid-item"><img src="test.jpg" alt="" /></div>
-      <div class="grid-item"><img src="test.jpg" alt="" /></div>
-      <div class="grid-item"><img src="test.jpg" alt="" /></div>
-      <div class="grid-item"><img src="test.jpg" alt="" /></div>
-      <div class="grid-item"><img src="test.jpg" alt="" /></div>
-      <div class="grid-item"><img src="test.jpg" alt="" /></div>
-      <div class="grid-item"><img src="test.jpg" alt="" /></div>
-      <div class="grid-item"><img src="test.jpg" alt="" /></div>
-      <div class="grid-item"><img src="test.jpg" alt="" /></div>
+    <div class="grid">
+      <div class="grid-item">
+        <img
+          src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/submerged.jpg"
+        />
+      </div>
+      <div class="grid-item">
+        <img
+          src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/submerged.jpg"
+        />
+      </div>
+      <div class="grid-item">
+        <img
+          src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/submerged.jpg"
+        />
+      </div>
+      <div class="grid-item">
+        <img
+          src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/submerged.jpg"
+        />
+      </div>
     </div>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
 
+      /* force scrollbar */
+      html {
+        overflow-y: scroll;
+      }
+
+      body {
+        font-family: sans-serif;
+      }
+
+      /* ---- grid ---- */
+
+      .grid {
+        background: #ddd;
+      }
+
+      /* clear fix */
+      .grid:after {
+        content: "";
+        display: block;
+        clear: both;
+      }
+
+      /* ---- .grid-item ---- */
+
+      .grid-sizer,
+      .grid-item {
+        width: 33.333%;
+      }
+
+      .grid-item {
+        float: left;
+      }
+
+      .grid-item img {
+        display: block;
+        max-width: 100%;
+      }
+    </style>
     <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js">
 
 
