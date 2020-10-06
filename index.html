@@ -12,9 +12,13 @@
         "country=us&" +
         "apiKey=a61d97e2754d429ab848238a415874cd";
 
-      fetch(url, { mode: "cors" }).then(function (response) {
-        console.log(response.json());
-      });
+      fetch(url, { mode: "cors" })
+        .then((response) => {
+          return response.json();
+        })
+        .then((data) => {
+          console.log(data);
+        });
     </script>
   </body>
 </html>
