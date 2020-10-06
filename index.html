@@ -13,13 +13,12 @@
         "country=us&" +
         "apiKey=a61d97e2754d429ab848238a415874cd";
 
-      function parsArticles() {
+      function getArticles() {
         fetch(url, { mode: "cors" })
           .then((response) => {
             return response.json();
           })
           .then((data) => {
-            console.log(data);
             if (data.articles) {
               data.articles.forEach((article) => {
                 articleList.push(article);
@@ -28,6 +27,7 @@
             console.log(articleList);
           });
       }
+      getArticles();
     </script>
   </body>
 </html>
