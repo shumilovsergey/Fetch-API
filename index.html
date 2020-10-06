@@ -5,20 +5,29 @@
     <title>Document</title>
   </head>
   <body>
-    <p>text</p>
+    <p>textsss</p>
     <script>
+      const articleList = [];
       const url =
         "http://newsapi.org/v2/top-headlines?" +
         "country=us&" +
         "apiKey=a61d97e2754d429ab848238a415874cd";
 
-      fetch(url, { mode: "cors" })
-        .then((response) => {
-          return response.json();
-        })
-        .then((data) => {
-          console.log(data);
-        });
+      function parsArticles() {
+        fetch(url, { mode: "cors" })
+          .then((response) => {
+            return response.json();
+          })
+          .then((data) => {
+            console.log(data);
+            if (data.articles) {
+              data.articles.forEach((article) => {
+                articleList.push(article);
+              });
+            }
+            console.log(articleList);
+          });
+      }
     </script>
   </body>
 </html>
