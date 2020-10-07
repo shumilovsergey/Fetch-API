@@ -77,9 +77,12 @@
             let articlesHTML = "";
             articleList.forEach((article, i) => {
               console.log(i);
+              console.log(article);
+              console.log(article.url);
               articlesHTML += `
                 <div class="grid-item ${i}">
-                  <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/submerged.jpg" />
+                  <p>${article.title}</p>
+                  <img src="${article.urlToImage}" />
                 </div>
                 `;
             });
@@ -87,11 +90,6 @@
             console.log("ok");
           });
       }
-
-      // function renderArticles() {
-      //
-
-      // }
     </script>
   </body>
 </html>
