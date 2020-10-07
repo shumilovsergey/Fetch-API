@@ -54,6 +54,7 @@
         "articleListContainer"
       );
       const articleList = [];
+
       const url =
         "http://newsapi.org/v2/top-headlines?" +
         "country=us&" +
@@ -67,31 +68,30 @@
             return response.json();
           })
           .then((data) => {
-            console.log(data);
             if (data.articles) {
               data.articles.forEach((article) => {
                 articleList.push(article);
               });
             }
-            console.log(articleList);
+
+            let articlesHTML = "";
+            articleList.forEach((article, i) => {
+              console.log(i);
+              articlesHTML += `
+                <div class="grid-item ${i}">
+                  <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/submerged.jpg" />
+                </div>
+                `;
+            });
+            articleListContainer.innerHTML = articlesHTML;
+            console.log("ok");
           });
       }
 
-      function renderArticles() {
-        const articlesHTML = "";
+      // function renderArticles() {
+      //
 
-        articleList.forEach((article, i) => {
-          console.log(i);
-          articlesHTML += `
-          <div class="grid-item ${i}">
-            <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/submerged.jpg" />
-          </div>
-          `;
-        });
-        articleListContainer.innerHTML = articlesHTML;
-      }
-
-      renderArticles();
+      // }
     </script>
   </body>
 </html>
