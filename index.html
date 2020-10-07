@@ -79,13 +79,15 @@
               console.log(i);
               console.log(article);
               console.log(article.url);
-              articlesHTML += `
+              if (article.urlToImage && article.title) {
+                articlesHTML += `
                 <div class="grid-item ${i}">
                   <h1>${article.title}</h1>
                   <p>${article.description}</p>
                   <img src="${article.urlToImage}" />
                 </div>
                 `;
+              }
             });
             articleListContainer.innerHTML = articlesHTML;
             console.log("ok");
