@@ -49,47 +49,49 @@
         max-width: 100%;
       }
     </style>
-    <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js">
-
-      const articleListContainer = document.getElementById("articleListContainer");
+    <script>
+      const articleListContainer = document.getElementById(
+        "articleListContainer"
+      );
       const articleList = [];
       const url =
         "http://newsapi.org/v2/top-headlines?" +
         "country=us&" +
         "apiKey=a61d97e2754d429ab848238a415874cd";
 
+      getArticles();
 
+      function getArticles() {
+        fetch(url, { mode: "cors" })
+          .then((response) => {
+            return response.json();
+          })
+          .then((data) => {
+            console.log(data);
+            if (data.articles) {
+              data.articles.forEach((article) => {
+                articleList.push(article);
+              });
+            }
+            console.log(articleList);
+          });
+      }
 
-        function getArticles() {
-          fetch(url, { mode: "cors" })
-            .then((response) => {
-              return response.json();
-            })
-            .then((data) => {
-              if (data.articles) {
-                data.articles.forEach((article) => {
-                  articleList.push(article);
-                });
-              }
-              console.log(articleList);
-            });
-        }
-        // function renderArticles() {
-        //   const articlesHTML = "";
+      function renderArticles() {
+        const articlesHTML = "";
 
-        //   articleList.forEach((article, i) => {
-        //     console.log(i);
-        //     articlesHTML += `
-        //     <div class="grid-item ${i}">
-        //       <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/submerged.jpg" />
-        //     </div>
-        //     `;
-        //   });
-        //   articleListContainer.innerHTML = tasksHTML;
-        // }
+        articleList.forEach((article, i) => {
+          console.log(i);
+          articlesHTML += `
+          <div class="grid-item ${i}">
+            <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/submerged.jpg" />
+          </div>
+          `;
+        });
+        articleListContainer.innerHTML = articlesHTML;
+      }
 
-        getArticles();
-        // renderArticles();
+      renderArticles();
     </script>
   </body>
 </html>
