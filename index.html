@@ -76,9 +76,6 @@
 
             let articlesHTML = "";
             articleList.forEach((article, i) => {
-              console.log(i);
-              console.log(article);
-              console.log(article.url);
               if (article.urlToImage && article.title) {
                 articlesHTML += `
                 <div class="grid-item ${i}">
@@ -90,7 +87,6 @@
               }
             });
             articleListContainer.innerHTML = articlesHTML;
-            console.log("ok");
           });
       }
     </script>
